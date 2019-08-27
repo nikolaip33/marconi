@@ -1,9 +1,9 @@
-<!-- contact -->
+<!-- refactor into standard header later -->
 <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h2>New User</h2>
+        <h2>New User Sign Up</h2>
         </div>
     </div>
   </div>
@@ -15,17 +15,17 @@
       <div class="col-lg-7 mb-4 mb-lg-0">
 
         <%= form_for @user do |f| %>
-            <%= f.text_field :username, class: 'form-control mb-3', placeholder: 'Username' %>
+            <%= f.text_field :username, class: 'form-control mb-3', placeholder: 'Username', required: true %>
 
-            <%= f.password_field :password, class: 'form-control mb-3', placeholder: 'Password' %>
+            <%= f.email_field :email, class: 'form-control mb-3', placeholder: 'E-mail', required: true %>
 
-            <%= f.email_field :email, class: 'form-control mb-3', placeholder: 'email' %>
+            <%= f.password_field :password, class: 'form-control mb-3', placeholder: 'Password', required: true %>
 
             <%= f.text_field :first_name, class: 'form-control mb-3', placeholder: 'First Name (optional)' %>
 
             <%= f.text_field :last_name, class: 'form-control mb-3', placeholder: 'Last Name (optional)' %>
 
-            <%= f.button 'New User', class: 'btn btn-primary'%>
+            <%= f.button 'Sign Up', class: 'btn btn-primary'%>
         <% end %>
 
       </div>
@@ -40,11 +40,6 @@
 </section>
 <!-- /contact -->
 
-<!-- gmap -->
-<section class="section pt-0">
-  <!-- Google Map -->
-  <div id="map_canvas" data-latitude="51.507351" data-longitude="-0.127758"></div>
-</section>
 <!-- /gmap -->
 
 <!--

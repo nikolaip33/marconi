@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  publish_date: 2019-08-27 13:20:53
+  length: 1
+  player_embed: MyString
+  podcast_id: 1
+
+two:
+  title: MyString
+  publish_date: 2019-08-27 13:20:53
+  length: 1
+  player_embed: MyString
+  podcast_id: 1

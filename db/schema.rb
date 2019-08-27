@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_130948) do
+ActiveRecord::Schema.define(version: 2019_08_27_213800) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "title"
+    t.string "summary"
+    t.datetime "publish_date"
+    t.integer "length"
+    t.string "player_embed"
+    t.integer "podcast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "podcasts", force: :cascade do |t|
     t.string "title"
     t.integer "publisher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
