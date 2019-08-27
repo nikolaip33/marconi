@@ -280,3 +280,10 @@ textarea.form-control{
 #map_canvas{
   height: 500px;
 }
+
+.field_with_errors .form-control,
+.field_with_errors ::placeholder
+{
+  color: $error-color;
+  border-color: $error-color;
+}

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'sessions#welcome'
+  root 'sessions#home'
+
+  get '/signup' => 'users#new'
+
 
   resources :reviews
   resources :podcasts
