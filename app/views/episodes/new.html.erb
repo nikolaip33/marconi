@@ -1,0 +1,64 @@
+<!-- refactor into standard header later -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Add New Episode</h2>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+
+        <%= form_for @episode do |f| %>
+            <%= f.collection_select :podcast_id, Podcast.all, :id, :name, { prompt: 'Please Select A Podcast' }, { class: 'form-control mb-3' } %>
+
+            <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Episode Title', required: true %>
+
+            <!-- Creates inline fields -->
+            <div class="form-row">
+                <div class="col">
+                    <%= f.number_field :number, class: 'form-control mb-3 col-md-12', placeholder: 'Episode #', required: true %>
+                </div>
+
+                <div class="col">
+                    <%= f.number_field :length, class: 'form-control mb-3 col-md-12', placeholder: 'Episode Length', required: true %>
+                </div>
+
+                <div class="col">
+                    <%= f.date_field :publish_date, class: 'form-control mb-3 col-md-12', placeholder: 'Publish Date', required: true %>
+                </div>
+            </div>
+
+            <%= f.text_area :summary, class: 'form-control mb-3', placeholder: 'Episode Summary' %>
+
+            <%= f.text_field :player_embed, class: 'form-control mb-3', placeholder: 'Embedded Player Snippet' %>
+
+            <%= f.button 'Create Episode', class: 'btn btn-primary'%>
+        <% end %>
+
+      </div>
+      <div class="col-lg-5">
+        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita</p>
+        <a href="tel:+8802057843248" class="text-color h5 d-block">+880 20 5784 3248</a>
+        <a href="mailto:yourmail@email.com" class="mb-5 text-color h5 d-block">yourmail@email.com</a>
+        <p>71 Shelton Street<br>London WC2H 9JQ England</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# create_table "episodes", force: :cascade do |t|
+    t.string "title"
+    t.string "summary"
+    t.datetime "publish_date"
+    t.integer "length"
+    t.string "player_embed"
+    t.integer "podcast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+end %>
