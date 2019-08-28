@@ -15,22 +15,22 @@
       <div class="col-lg-7 mb-4 mb-lg-0">
 
         <%= form_for @episode do |f| %>
-            <%= f.collection_select :podcast_id, Podcast.all, :id, :name, { prompt: 'Please Select A Podcast' }, { class: 'form-control mb-3' } %>
+            <%= f.collection_select :podcast_id, Podcast.all, :id, :title, { prompt: 'Please Select A Podcast' }, { class: 'form-control mb-3' } %>
 
-            <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Episode Title', required: true %>
+            <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Episode Title', required: false %>
 
             <!-- Creates inline fields -->
             <div class="form-row">
                 <div class="col">
-                    <%= f.number_field :number, class: 'form-control mb-3 col-md-12', placeholder: 'Episode #', required: true %>
+                    <%= f.number_field :number, class: 'form-control mb-3 col-md-12', placeholder: 'Episode #', required: false %>
                 </div>
 
                 <div class="col">
-                    <%= f.number_field :length, class: 'form-control mb-3 col-md-12', placeholder: 'Episode Length', required: true %>
+                    <%= f.number_field :length, class: 'form-control mb-3 col-md-12', placeholder: 'Episode Length', required: false %>
                 </div>
 
                 <div class="col">
-                    <%= f.date_field :publish_date, class: 'form-control mb-3 col-md-12', placeholder: 'Publish Date', required: true %>
+                    <%= f.date_field :publish_date, class: 'form-control mb-3 col-md-12', placeholder: 'Publish Date', required: false %>
                 </div>
             </div>
 

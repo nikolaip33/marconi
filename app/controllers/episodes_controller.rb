@@ -5,7 +5,7 @@ class EpisodesController < ApplicationController
     end
 
     def create
-
+        byebug
     end
 
     def edit
