@@ -1,0 +1,33 @@
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h3><%= link_to @episode.podcast.title, @episode.podcast %>
+        <h2><%= @episode.title %></h2>
+        <h4><%= @episode.publisher.name %>
+        <h5><%= @episode.publish_date.strftime("%B %d, %Y") %> - <%= @episode.length %> minutes</h5>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        
+        <h4>Epsiode Summary</h4>
+        <p><%= @episode.summary %> </p>
+        <iframe style="border: solid 1px #dedede;"  src="https://app.stitcher.com/splayer/f/<%= @episode.player_embed %>" width="100%" height="120" frameborder="0" scrolling="no"></iframe>
+      
+      </div>
+      <div class="col-lg-5">
+        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita</p>
+        <a href="tel:+8802057843248" class="text-color h5 d-block">+880 20 5784 3248</a>
+        <a href="mailto:yourmail@email.com" class="mb-5 text-color h5 d-block">yourmail@email.com</a>
+        <p>71 Shelton Street<br>London WC2H 9JQ England</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,7 +5,12 @@ class EpisodesController < ApplicationController
     end
 
     def create
-        byebug
+        @episode = Episode.new(episode_params)
+        if @episode.save
+            redirect_to @episode
+        else
+            render :new
+        end
     end
 
     def edit
@@ -17,7 +22,7 @@ class EpisodesController < ApplicationController
     end
 
     def show
-
+        @episode = Episode.find_by(id: params[:id])
     end
 
     def index
@@ -26,5 +31,11 @@ class EpisodesController < ApplicationController
 
     def destroy
 
+    end
+
+    private
+
+    def episode_params
+        params.require(:episode).permit(:title, :summary, :number, :length, :publish_date, :player_embed, :podcast_id)
     end
 end

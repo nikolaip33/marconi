@@ -8,7 +8,7 @@ class PodcastsController < ApplicationController
     def create
         @podcast = Podcast.new(podcast_params)
         if @podcast.save
-            redirect_to podcast_path(@podcast)
+            redirect_to @podcast
         else
             render :new
         end
