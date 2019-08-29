@@ -1,5 +1,4 @@
 class Episode < ApplicationRecord
     belongs_to :podcast
-
-    delegate :producer, :to => :podcast, :allow_nil => true
+    has_one :publisher, through: :podcast
 end

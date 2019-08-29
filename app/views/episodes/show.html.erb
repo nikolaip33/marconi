@@ -4,8 +4,8 @@
       <div class="col-md-8">
         <h3><%= link_to @episode.podcast.title, @episode.podcast %>
         <h2><%= @episode.title %></h2>
-        <h4><%= @episode.publisher.name %>
-        <h5><%= @episode.publish_date.strftime("%B %d, %Y") %> - <%= @episode.length %> minutes</h5>
+        <h4><%= link_to @episode.publisher.name, @episode.publisher %>
+        
         </div>
     </div>
   </div>
@@ -16,8 +16,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mb-4 mb-lg-0">
-        
-        <h4>Epsiode Summary</h4>
+        <h4><%= @episode.publish_date.strftime("%B %d, %Y") %> - <%= @episode.length %> minutes</h4>
+        <br>
+        <h5>Epsiode Summary</h5>
         <p><%= @episode.summary %> </p>
         <iframe style="border: solid 1px #dedede;"  src="https://app.stitcher.com/splayer/f/<%= @episode.player_embed %>" width="100%" height="120" frameborder="0" scrolling="no"></iframe>
       

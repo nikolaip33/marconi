@@ -16,7 +16,7 @@ class PodcastsController < ApplicationController
 
     def show
         @podcast = Podcast.find_by(id: params[:id])
-        redirect_to new_podcast_path if @podcast.nil?
+        
     end
 
     private
