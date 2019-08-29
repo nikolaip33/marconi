@@ -26,7 +26,7 @@ class EpisodesController < ApplicationController
     end
 
     def index
-
+        @episodes = Episode.all
     end
 
     def destroy

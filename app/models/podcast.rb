@@ -9,7 +9,6 @@ class Podcast < ApplicationRecord
     # accepts_nested_attributes_for :publisher
 
     def publisher_attributes=(attributes)
-        byebug
         self.publisher = Publisher.find_or_create_by(attributes) if !attributes[:name].empty?
     end
 end

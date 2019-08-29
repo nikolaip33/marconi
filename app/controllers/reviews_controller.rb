@@ -1,8 +1,18 @@
 class ReviewsController < ApplicationController
 
     def create
-        @review = current_user.reviews.build(review_params)
-        byebug
+        if logged_in?
+            byebug
+            @review = current_user.reviews.build(review_params)
+            
+            if @review.save
+                redirect_to @review.podcast
+            else
+                redirect_to @review.podcast
+            end
+        else
+            redirect_to login_path
+        end
     end
 
     def edit

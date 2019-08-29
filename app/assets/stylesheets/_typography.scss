@@ -38,12 +38,11 @@ h1, .h1{
   }
 }
 
-.page-title-section h2, .page-title-section .h2{
-  font-size: 40px;
+.page-title-section h2, .page-title-section .h2,
+.page-title-section h3, .page-title-section .h3,
+.page-title-section h4, .page-title-section .h4,
+.page-title-section h5, .page-title-section .h5 {
   color: $primary-color;
-  @include mobile {
-    font-size: 30px;
-  }
 }
 
 h2, .h2{

@@ -1,0 +1,46 @@
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Latest Episodes</h2>
+                <h4>Listen the newest episodes from a variety of publishers</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- research -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+
+            <% @episodes.each do |episode| %>
+            <!-- recharch item -->
+                <div class="col-lg-12">
+                    <div class="card rounded-0 hover-shadow border-top-0 border-left-0 border-right-0">
+
+                        <div class="card-body">
+                        
+                        <h4 class="card-title"><%= link_to episode.title, episode %> </h4>
+                        
+                        <h5 class="card-title"><%= link_to episode.podcast.title, episode.podcast %> </h5>
+
+                        <h6><%= link_to episode.publisher.name, episode.publisher %></h6>
+            
+                        <p class="card-text">
+                        <%= "Episode  #{episode.number} -" if episode.number %><%= episode.published %> - <%= episode.length %> minutes
+                        </p>
+                        <p class="card-text">
+                        <%= episode.summary %>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            <!-- recharch item -->
+            <% end %>
+
+        </div>
+    </div>
+</section>

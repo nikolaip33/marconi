@@ -68,7 +68,14 @@ a.text-light:hover {
 h4{
   transition: .2s ease;
 }
-a h4{
+
+h3 a, h4 a, h5 a, h6 a  {
+  &:hover{
+    color: $secondary-color;
+  }
+}
+
+a h3, a h4, a h5, a h6 {
   &:hover{
     color: $primary-color;
   }

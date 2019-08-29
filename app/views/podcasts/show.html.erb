@@ -13,23 +13,51 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mb-4 mb-lg-0">
-        <%= form_for @podcast.reviews.build do |f| %>
-            <%= f.number_field :rating, class: 'form-control mb-3', placeholder: 'Rating', required: true %>
-
-            <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Title', required: true %>
-
-            <%= f.text_area :comment, class: 'form-control mb-3', placeholder: 'Enter comment here...', required: true %>
-
-            <%= f.hidden_field :podcast_id %>
-
-            <%= f.button 'Leave Review', class: 'btn btn-primary'%>
+        <% 20.times do %>
+        <h3>Podcast Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat.</p>
         <% end %>
       </div>
+
+
+
       <div class="col-lg-5">
-        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita</p>
-        <a href="tel:+8802057843248" class="text-color h5 d-block">+880 20 5784 3248</a>
-        <a href="mailto:yourmail@email.com" class="mb-5 text-color h5 d-block">yourmail@email.com</a>
-        <p>71 Shelton Street<br>London WC2H 9JQ England</p>
+            
+            <h4>Leave a Review</h4>
+            <%= render partial: "reviews/review_form", locals: { podcast: @podcast } %>
+            <br><br>
+            <h4>Reviews</h4>
+
+            <% @reviews.each do |review| %> 
+            <div class="card rounded-0 hover-shadow border-top-0 border-left-0 border-right-0">  
+                <div class="card-body">
+                    
+                    <p>
+                    <h4>
+                    <% review.rating.times do %>
+                    &#9733;
+                    <% end %>
+
+                    <% (5-review.rating).times do %>
+                    &#9734;
+                    <% end %>
+                    </h4>
+                    <h4><%= review.title %></h4>
+                    
+                    </p>
+                    <p>
+                    
+                    <%= review.comment %>
+                    </p>
+                    <p>
+                    By <strong><%= review.user.username %></strong> on <%= review.date%>
+                    </p>
+                </div>
+            </div>
+            <% end %>
+
+            
+
       </div>
     </div>
   </div>
