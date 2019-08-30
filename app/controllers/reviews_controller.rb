@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
     def create
         if logged_in?
-            byebug
+
             @review = current_user.reviews.build(review_params)
             
             if @review.save
