@@ -3,6 +3,7 @@ class CreateEpisodes < ActiveRecord::Migration[5.2]
     create_table :episodes do |t|
       t.string :title
       t.string :summary
+      t.integer :number
       t.datetime :publish_date
       t.integer :length
       t.string :player_embed

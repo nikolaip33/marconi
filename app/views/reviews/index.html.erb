@@ -1,0 +1,24 @@
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2><%= @podcast.title %></h2>
+        <h3><%= @podcast.publisher.name %>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <%= render partial: "reviews/list_reviews", locals: { reviews: @reviews, origin: 'index' } %>
+      </div>
+
+      <div class="col-lg-5">
+            <%= render partial: "reviews/review_form", locals: { podcast: @podcast} %>
+      </div>
+    </div>
+  </div>
+</section>

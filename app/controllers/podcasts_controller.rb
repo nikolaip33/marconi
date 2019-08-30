@@ -15,8 +15,16 @@ class PodcastsController < ApplicationController
     end
 
     def show
-        @podcast = Podcast.find_by(id: params[:id])
-        @reviews = @podcast.reviews.persisted
+        if @podcast = Podcast.find_by(id: params[:id])
+            @episodes = @podcast.episodes.latest
+            @reviews = @podcast.reviews.persisted
+        else
+            redirect_to podcasts_path
+        end
+    end
+
+    def index
+
     end
 
     private

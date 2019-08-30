@@ -13,51 +13,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mb-4 mb-lg-0">
-        <% 20.times do %>
-        <h3>Podcast Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat.</p>
+      <% @episodes.each do |episode| %>
+        <div class="card border-top-0 border-left-0 border-right-0 rounded-0 hover-shadow">
+            <div class="card-body">
+              <a href="event-single.html">
+                <h4 class="card-title"><%= episode.title %></h4>
+              </a>
+              <p><strong><%= "Episode  #{episode.number} • " if episode.number %><%= episode.published_on %> • <%= episode.length %> minutes</strong></p>
+              <p><%= episode.summary %></p>
+            </div>
+          </div>
         <% end %>
       </div>
 
 
 
       <div class="col-lg-5">
-            
-            <h3>Leave a Review</h3>
-            <%= render partial: "reviews/review_form", locals: { podcast: @podcast } %>
-            <br><br>
-            <h3>Reviews</h3>
-
-            <% @reviews.each do |review| %> 
-            <div class="card rounded-0 hover-shadow border-top-0 border-left-0 border-right-0">  
-                <div class="card-body">
-                    
-                    <p>
-                    <h4>
-                    <% review.rating.times do %>
-                    &#9733;
-                    <% end %>
-
-                    <% (5-review.rating).times do %>
-                    &#9734;
-                    <% end %>
-                    </h4>
-                    <h4><%= review.title %></h4>
-                    
-                    </p>
-                    <p>
-                    
-                    <%= review.comment %>
-                    </p>
-                    <p>
-                    By <strong><%= review.user.username %></strong> on <%= review.date%>
-                    </p>
-                </div>
-            </div>
-            <% end %>
-
-            
-
+            <%= render partial: "reviews/review_form", locals: { podcast: @podcast} %><br><br>
+            <%= render partial: "reviews/list_reviews", locals: { reviews: @reviews } %>
       </div>
     </div>
   </div>

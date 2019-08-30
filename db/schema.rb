@@ -10,26 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_134843) do
+ActiveRecord::Schema.define(version: 2019_08_27_213800) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
     t.string "summary"
+    t.integer "number"
     t.datetime "publish_date"
     t.integer "length"
     t.string "player_embed"
     t.integer "podcast_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "number"
   end
 
   create_table "podcasts", force: :cascade do |t|
     t.string "title"
+    t.string "description"
     t.integer "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -39,13 +39,13 @@ ActiveRecord::Schema.define(version: 2019_08_29_134843) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
+    t.integer "rating", default: 0
+    t.string "title"
     t.string "comment"
     t.integer "user_id"
     t.integer "podcast_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_134843) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

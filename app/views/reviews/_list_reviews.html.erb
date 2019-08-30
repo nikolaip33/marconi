@@ -1,0 +1,25 @@
+<h3>Reviews</h3>
+
+<% reviews.each do |review| %> 
+    <div class="card rounded-0 hover-shadow border-top-0 border-left-0 border-right-0">  
+        <div class="card-body">
+            
+            <p>
+                <h4>
+                    <% review.rating.times do %> &#9733; <% end %>
+                    <% (5-review.rating).times do %> &#9734; <% end %>
+                </h4>
+
+                <h4><%= review.title %></h4>
+            </p>
+
+            <p>
+                <%= review.comment %>
+            </p>
+            
+            <p>
+                By <strong><%= review.user.username %></strong> on <%= review.date %>
+            </p>
+        </div>
+    </div>
+<% end %>

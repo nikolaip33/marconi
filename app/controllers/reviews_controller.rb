@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
         if @podcast = Podcast.find_by(id: params[:podcast_id])
             @reviews = @podcast.reviews
         else
-            @reviews = Review.all
+            redirect_to podcasts_path
         end
     end
 
