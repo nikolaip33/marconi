@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_213800) do
 
   create_table "publishers", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_213800) do
     t.string "last_name"
     t.string "email"
     t.boolean "admin", default: false
+    t.boolean "superadmin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

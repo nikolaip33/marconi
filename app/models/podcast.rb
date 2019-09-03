@@ -2,7 +2,8 @@ class Podcast < ApplicationRecord
     belongs_to :publisher
     has_many :episodes
     has_many :reviews
-    has_many :users, through: :reviews
+    has_one :user, through: :publisher
+    has_many :review_users, through: :reviews, source: :users
 
     validates :title, uniqueness: { case_sensitive: false }
 

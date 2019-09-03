@@ -26,9 +26,15 @@
         
         <div class="col-lg-12 text-center text-lg-right">
           <ul class="list-inline">
+            <% if logged_in? %>
+            <li class="list-inline-item"><%= link_to('Logout',logout_path, method: :post, class: "text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block") %></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="<%= user_path(current_user) %>"><%= current_user.username %></a></li>
+           
+            <% else %>
             <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="/signup">Sign Up</a></li>
             <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="/login">Log In</a></li>
-            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="/logout">Log Out</a></li>
+
+             <% end %>
             <!--
             <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
             <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
@@ -51,10 +57,10 @@
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="/podcasts">Podcasts</a>
             </li>
           </ul>
         </div>

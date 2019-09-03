@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
+    helper_method :current_user, :logged_in?
 end

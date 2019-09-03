@@ -9,7 +9,7 @@
   </div>
 </section>
 
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mb-4 mb-lg-0">
@@ -24,6 +24,8 @@
             <%= f.text_field :first_name, class: 'form-control mb-3', placeholder: 'First Name (optional)' %>
 
             <%= f.text_field :last_name, class: 'form-control mb-3', placeholder: 'Last Name (optional)' %>
+
+            <%= f.check_box :admin, class: 'mb-3' %> Admin Account? <br>
 
             <%= f.button 'Sign Up', class: 'btn btn-primary'%>
         <% end %>

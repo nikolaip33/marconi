@@ -1,16 +1,25 @@
 class PodcastsController < ApplicationController
 
     def new
-        @podcast = Podcast.new
-        @podcast.build_publisher
+        if logged_in?
+            @podcast = Podcast.new
+            @podcast.build_publisher(user_id: current_user.id)
+        else
+            redirect_to login_path
+        end
     end
 
     def create
-        @podcast = Podcast.new(podcast_params)
-        if @podcast.save
-            redirect_to @podcast
+
+        if logged_in? && @podcast = Podcast.new(podcast_params)
+        byebug
+            if @podcast.save
+                redirect_to @podcast
+            else
+                render :new
+            end
         else
-            render :new
+            redirect_to signup_path
         end
     end
 
@@ -30,6 +39,6 @@ class PodcastsController < ApplicationController
     private
 
     def podcast_params
-        params.require(:podcast).permit(:title, :publisher_id, publisher_attributes:[:name])
+        params.require(:podcast).permit(:title, :publisher_id, publisher_attributes:[:name, :user_id])
     end
 end
