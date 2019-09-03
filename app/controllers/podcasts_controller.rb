@@ -33,12 +33,16 @@ class PodcastsController < ApplicationController
     end
 
     def index
-
+        if logged_in?
+            @podcasts = current_user.podcasts
+        else
+            redirect_to login_path
+        end
     end
 
     private
 
     def podcast_params
-        params.require(:podcast).permit(:title, :publisher_id, publisher_attributes:[:name, :user_id])
+        params.require(:podcast).permit(:title, :description, :publisher_id, publisher_attributes:[:name, :user_id])
     end
 end

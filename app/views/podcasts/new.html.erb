@@ -18,11 +18,12 @@
 
         <%= form_for @podcast do |f| %>
             <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Podcast Title', required: true %>
-                <%= f.collection_select :publisher_id, Publisher.all, :id, :name, { prompt: 'Please Select A Publisher' }, { class: 'form-control mb-3' } %>
-                <%= f.fields_for :publisher do |p| %>
-                    <%= p.text_field :name, class: 'form-control mb-3', placeholder: 'New Podcast Publisher' %>
-                    <%= p.hidden_field :user_id %>
-                <% end %>
+            <%= f.text_area :description, class: 'form-control mb-3', placeholder: 'Podcast Description...', required: true %>
+            <%= f.collection_select :publisher_id, Publisher.all, :id, :name, { prompt: 'Please Select A Publisher...' }, { class: 'form-control mb-3' } %>
+            <%= f.fields_for :publisher do |p| %>
+                <%= p.text_field :name, class: 'form-control mb-3', placeholder: 'Or Enter New Podcast Publisher' %>
+                <%= p.hidden_field :user_id %>
+            <% end %>
 
             <%= f.button 'Create Podcast', class: 'btn btn-primary'%>
         <% end %>
