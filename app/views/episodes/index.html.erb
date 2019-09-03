@@ -1,4 +1,16 @@
 <!-- page title -->
+<% if @podcast %>
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2><%= @podcast.title %></h2>
+                <h4>Episodes for</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<% else %>
 <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
     <div class="container">
         <div class="row">
@@ -9,6 +21,7 @@
         </div>
     </div>
 </section>
+<% end %>
 <!-- /page title -->
 
 <!-- research -->

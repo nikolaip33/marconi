@@ -33,10 +33,10 @@ class PodcastsController < ApplicationController
     end
 
     def index
-        if logged_in?
+        if logged_in?  && admin?
             @podcasts = current_user.podcasts
         else
-            redirect_to login_path
+            @podcasts = Podcast.all
         end
     end
 

@@ -15,7 +15,7 @@
       <div class="col-lg-7 mb-4 mb-lg-0">
 
         <%= form_for @episode do |f| %>
-            <%= f.collection_select :podcast_id, Podcast.all, :id, :title, { prompt: 'Please Select A Podcast' }, { class: 'form-control mb-3' } %>
+            <%= f.collection_select :podcast_id, current_user.podcasts, :id, :title, { prompt: 'Please Select A Podcast' }, { class: 'form-control mb-3' } %>
 
             <%= f.text_field :title, class: 'form-control mb-3', placeholder: 'Episode Title', required: false %>
 

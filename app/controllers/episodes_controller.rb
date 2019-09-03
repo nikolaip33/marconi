@@ -23,10 +23,29 @@ class EpisodesController < ApplicationController
 
     def show
         @episode = Episode.find_by(id: params[:id])
+        @podcast = @episode.podcast
+        @reviews = @podcast.reviews.persisted
     end
 
     def index
-        @episodes = Episode.all
+        if params[:podcast_id]
+            if @podcast = Podcast.find_by(id: params[:podcast_id])
+                if logged_in? && admin? && @podcast.user != current_user
+                    redirect_to episodes_path
+                else
+                    @episodes = @podcast.episodes
+                end
+            else
+                redirect_to episodes_path
+            end
+        else
+            if logged_in? && admin?
+                @episodes = current_user.episodes
+            else
+                @episodes = Episode.all
+            end
+        end
+
     end
 
     def destroy

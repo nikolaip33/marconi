@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
+    def admin?
+        logged_in? && current_user.admin
+    end
+
     helper_method :current_user, :logged_in?
 end

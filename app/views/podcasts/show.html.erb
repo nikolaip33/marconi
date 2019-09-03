@@ -16,9 +16,9 @@
       <% @episodes.each do |episode| %>
         <div class="card border-top-0 border-left-0 border-right-0 rounded-0 hover-shadow">
             <div class="card-body">
-              <a href="event-single.html">
-                <h4 class="card-title"><%= episode.title %></h4>
-              </a>
+              
+                <h4 class="card-title"><%= link_to episode.title, episode %></h4>
+              
               <p><strong><%= "Episode  #{episode.number} • " if episode.number %><%= episode.published_on %> • <%= episode.length %> minutes</strong></p>
               <p><%= episode.summary %></p>
             </div>

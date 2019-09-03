@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :podcasts do
     resources :reviews
   end
+  resources :podcasts do
+    resources :episodes
+  end
   resources :publishers
   resources :episodes
   resources :users

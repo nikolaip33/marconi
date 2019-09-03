@@ -6,9 +6,9 @@ class ReviewsController < ApplicationController
             @review = current_user.reviews.build(review_params)
             
             if @review.save
-                redirect_to @review.podcast
+                redirect_back(fallback_location: @review.podcast)
             else
-                redirect_to @review.podcast
+                redirect_back(fallback_location: @review.podcast)
             end
         else
             redirect_to login_path
